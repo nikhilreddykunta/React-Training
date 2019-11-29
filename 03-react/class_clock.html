@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <div id="root">
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
+
+        <script type="text/babel">
+            class Clock extends React.Component {
+                constructor(props) {
+                    super(props); //this.props = props;
+
+                    this.state = {
+                        date: new Date() 
+                    }
+                }
+
+                onClickTimeDiv = () => {
+                    alert("clicked");
+                    console.log(this);
+                }
+
+                render() {
+                    return (
+                        <div onClick = {this.onClickTimeDiv}>
+                            {this.props.message} {this.state.date.toTimeString()}     
+                        </div>
+                    )
+                }
+
+                componentDidMount() {
+                    this.state.date = new Date();
+                    console.log(this.state.date);
+                    setInterval(() => {
+                        // this.state.date = new Date();
+                        // this.forceUpdate(); //asking React to render again
+                        this.setState({ //setState() is asynchronous call
+                            date: new Date()
+                            },
+
+                        );
+                    },1000)
+                }
+            }
+
+            ReactDOM.render(<Clock messsage="Local Time is" />, document.getElementById('root'));
+        </script>
+    </body>
+</html>

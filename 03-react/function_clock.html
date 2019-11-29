@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <div id="root">
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
+
+        <script type="text/babel">
+           function Clock(props) {
+                //console.log(props);
+                const time = (new Date()).toTimeString();
+                return <div>
+                    {props.message} {time} {props.timezone}   
+                </div>
+           }
+
+            ReactDOM.render(
+                [
+                    <Clock message="The local time is" timezone="IST" />,
+                    <Clock message="The local time is" timezone="IST" />
+                ],
+                document.getElementById('root'));
+
+            setInterval(function() {
+                ReactDOM.render(
+                    <React.Fragment>
+                    <Clock message="The local time is" timezone="IST" />
+                    <Clock message="The local time is" timezone="IST" />
+                    <Clock message="The local time is" timezone="IST" />
+                    </React.Fragment>,
+                    document.getElementById('root'));
+            }, 1000)
+            
+        </script>
+    </body>
+</html>

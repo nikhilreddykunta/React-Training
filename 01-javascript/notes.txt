@@ -1,0 +1,41 @@
+// var has global and functional scope
+
+// the scope rules for const variables are exactly same as let variables
+
+//const variable has to be instantiated when it is declared
+//we can change the properties of the object defined by const but cannot change the entire object.
+//array destructuring and object destructuring
+
+// spread operator or rest parameter "..."
+
+//rest parameter collects all remaining elements into array
+//spread operator --> inverse operation of rest
+//spread operator --> allow iterables like arrays, objects, strings to be expanded into single arguments/elements.
+//we can also use spread operator to copy but it copies primitives (number, boolean, string) by values and rest by references.
+JSX --> an extesnion to the JavaScript language designed by React team
+
+A React element once created cannot be modified i.e., it is immutable.
+
+React router
+Redux
+Connected React router
+Axios
+Redux Thunk
+Redux Saga
+
+Inputs for a React Element: Props and State
+
+Components can be Stateless and Stateful
+    Stateless- defined using a function
+    Stateful- deginfed using a class that extends React.Component
+
+React.fragment
+
+//Arrow function inherits context from the outer function context
+
+//A Reducer must be a "pure function"
+// A "pure function" does not make use/change any global variables
+    //does not change incoming arguments
+    //must return the same output for same combination of arguments
+
+controlled components
